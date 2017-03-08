@@ -43,11 +43,11 @@ public class LoginActivity extends AbstractActivity implements View.OnFocusChang
                 EditText password = (EditText) findViewById(R.id.password);
                 if("admin".equals(username.getText().toString()) && "admin".equals(password.getText().toString()) ) {
                     Toast.makeText(LoginActivity.this, "Welcome admin!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(LoginActivity.this, StartActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                 }else if("user".equals(username.getText().toString()) && "user".equals(password.getText().toString())){
                     Toast.makeText(LoginActivity.this, "Welcome user!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, UserStartActivity.class);
                     startActivity(intent);
                 }else{
                     Toast.makeText(LoginActivity.this, "Wrong credentials", Toast.LENGTH_SHORT).show();

@@ -16,5 +16,29 @@
     <string name="title_activity_user_main">UserMainActivity</string>
     <string name="logout">Logout</string>
     <string name="title_activity_main2">Main2Activity</string>
-    <string name="title_activity_start">StartActivity</string>
+    <string name="title_activity_start">UserStartActivity</string>
+    <string name="user_name_surname">Rowan Etkinson</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string-array name="structure_array">
+        <item>Jednosoban</item>
+        <item>Jednoiposoban</item>
+        <item>Dvosoban</item>
+        <item>Trosoban</item>
+    </string-array>
+
+    <string-array name="type_array">
+        <item>Poslovni prostor</item>
+        <item>Stambeni prostor</item>
+    </string-array>
+
+    <string-array name="status_array">
+        <item>U izgradnji</item>
+        <item>Nenamesten</item>
+        <item>Namesten</item>
+        <item>Izdavanje</item>
+    </string-array>
 </resources>

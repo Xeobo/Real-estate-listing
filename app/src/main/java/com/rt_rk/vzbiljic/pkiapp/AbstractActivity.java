@@ -1,6 +1,5 @@
 package com.rt_rk.vzbiljic.pkiapp;
 
-import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
@@ -23,8 +22,8 @@ public abstract class AbstractActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(ContextCompat.getColor(this, R.color.navigationbar_color));
-            window.setNavigationBarColor(ContextCompat.getColor(this, R.color.navigationbar_color));
+            window.setStatusBarColor(ContextCompat.getColor(this, R.color.red));
+            window.setNavigationBarColor(ContextCompat.getColor(this, R.color.red));
             Log.i(TAG, "navigation bar color changed");
         }
         
