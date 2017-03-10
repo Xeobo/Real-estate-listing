@@ -1,4 +1,4 @@
-package com.rt_rk.vzbiljic.pkiapp;
+package com.rt_rk.vzbiljic.pkiapp.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.rt_rk.vzbiljic.pkiapp.R;
 import com.rt_rk.vzbiljic.pkiapp.bean.Property;
 import com.rt_rk.vzbiljic.pkiapp.utils.PropertyDataSource;
 
@@ -21,7 +22,7 @@ public class Adapter extends ArrayAdapter<String> {
 
 
     public Adapter(Context context){
-        super(context,R.layout.model_list, PropertyDataSource.getInstance().getNames());
+        super(context, R.layout.model_list, PropertyDataSource.getInstance().getNames());
 
         this.context = context;
     }

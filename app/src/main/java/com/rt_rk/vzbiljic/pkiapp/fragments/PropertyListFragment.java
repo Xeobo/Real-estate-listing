@@ -1,11 +1,10 @@
 package com.rt_rk.vzbiljic.pkiapp.fragments;
 
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,9 +14,8 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.rt_rk.vzbiljic.pkiapp.Adapter;
+import com.rt_rk.vzbiljic.pkiapp.adapters.Adapter;
 import com.rt_rk.vzbiljic.pkiapp.R;
-import com.rt_rk.vzbiljic.pkiapp.UserStartActivity;
 import com.rt_rk.vzbiljic.pkiapp.utils.PropertyDataSource;
 
 /**
@@ -57,6 +55,19 @@ public class PropertyListFragment extends Fragment {
                         PropertyDataSource.getInstance().get(position).getName(),
                         Toast.LENGTH_SHORT
                 ).show();
+
+                // Create fragment and give it an argument specifying the article it should show
+                DetailsFragment newFragment = new DetailsFragment();
+
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack so the user can navigate back
+                transaction.replace(R.id.fragment_container, newFragment);
+                transaction.addToBackStack(null);
+
+                // Commit the transaction
+                transaction.commit();
             }
         });
 
