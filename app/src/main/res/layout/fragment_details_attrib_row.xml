@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow  xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent" >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAppearance="@android:style/TextAppearance.Material.Small"
+        android:text="23.03.2016."
+        android:id="@+id/dateTextView"
+        android:background="@color/colorgrey"
+        android:padding="10dp"
+        android:layout_weight="0.25"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAppearance="@android:style/TextAppearance.Material.Small"
+        android:text="Petar"
+        android:id="@+id/userTextView"
+        android:padding="10dp"
+        android:layout_weight="0.25"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAppearance="@android:style/TextAppearance.Material.Small"
+        android:text="Janko"
+        android:id="@+id/agentTextView"
+        android:background="@color/colorgrey"
+        android:padding="10dp"
+        android:layout_weight="0.25"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAppearance="@android:style/TextAppearance.Material.Small"
+        android:text="obilazak"
+        android:id="@+id/typeTextView"
+        android:padding="10dp"
+        android:layout_weight="0.25"
+        />
+</TableRow>

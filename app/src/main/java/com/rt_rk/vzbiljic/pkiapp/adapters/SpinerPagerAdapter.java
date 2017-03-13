@@ -33,7 +33,7 @@ public class SpinerPagerAdapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(View view, Object object) {
-        return view == (LinearLayout)object;
+        return view == object;
 
     }
 
@@ -47,8 +47,6 @@ public class SpinerPagerAdapter extends PagerAdapter {
         ImageView imageView = (ImageView) v.findViewById(R.id.sliderImage);
 
         imageView.setImageResource(PropertyDataSource.getInstance().get(position).getImage());
-
-        Log.i("SpinnerPagerAdapter", "instantiateItem");
 
         container.addView(v);
         return v;

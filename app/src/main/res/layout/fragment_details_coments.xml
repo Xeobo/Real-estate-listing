@@ -2,4 +2,45 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Komentari"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/commentHeader"
+        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:id="@+id/comment_layout"
+        android:layout_below="@id/commentHeader"/>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@id/comment_layout"
+        android:id="@+id/input_comment"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_gravity="right"
+        android:text="Dodaj"
+        android:background="@color/red"
+        android:textColor="#fff"
+        android:layout_alignEnd="@+id/input_comment"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/input_comment"
+        android:id="@+id/add_comment"
+        />
+
 </RelativeLayout>

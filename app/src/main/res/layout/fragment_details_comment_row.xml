@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:text="23.03.2016. asfasfa sfa sfa sfasfa sf asf asf asfas fasfasf asfasfasfa sfa sfa sfaasf asf asf asf asf asfa sf asfasfasfasfasfasfasfasfasfasfas"
+        android:id="@+id/commentTextView"
+        android:enabled="false"
+        android:inputType="textMultiLine|text"
+        android:background="#fff"
+        android:textColor="#000"
+        android:padding="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/commentTextView"
+        android:id="@+id/commentDate"
+        android:gravity="right"
+        android:textSize="10dp"
+        android:text="16:26 Jun 26.2017."
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/colorgrey"
+        android:background="#fff"
+        />
+
+</RelativeLayout>

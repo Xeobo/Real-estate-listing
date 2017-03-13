@@ -32,9 +32,6 @@ public abstract class StartActivity extends AbstractActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-//        CoordinatorLayout coordinatorLayout = (CoordinatorLayout)findViewById(R.id.app_bar_start);
-//
-//        coordinatorLayout.addView(getLayoutInflater().inflate(getMainLayout(), coordinatorLayout,false));
 
         initMainLayout(savedInstanceState);
 
