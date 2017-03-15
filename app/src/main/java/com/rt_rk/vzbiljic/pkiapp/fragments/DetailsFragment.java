@@ -37,8 +37,11 @@ import com.rt_rk.vzbiljic.pkiapp.R;
 import com.rt_rk.vzbiljic.pkiapp.adapters.DetailsAdapterListView;
 import com.rt_rk.vzbiljic.pkiapp.adapters.SpinerPagerAdapter;
 import com.rt_rk.vzbiljic.pkiapp.bean.Comment;
-import com.rt_rk.vzbiljic.pkiapp.utils.ActivityDataSource;
-import com.rt_rk.vzbiljic.pkiapp.utils.CommentDataSource;
+import com.rt_rk.vzbiljic.pkiapp.bean.User;
+import com.rt_rk.vzbiljic.pkiapp.datasource.ActivityDataSource;
+import com.rt_rk.vzbiljic.pkiapp.datasource.UserDataSource;
+import com.rt_rk.vzbiljic.pkiapp.datasource.manager.ActivityDataSourceManager;
+import com.rt_rk.vzbiljic.pkiapp.datasource.manager.CommentDataSourceManager;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -49,10 +52,12 @@ import java.util.Locale;
  */
 public class DetailsFragment extends Fragment implements OnMapReadyCallback {
     private static final String TAG = "DetailsFragment";
+    private final int currentUserID;
     private SpinerPagerAdapter spinerPagerAdapter;
     private ViewPager viewPager;
     private MapView mapView;
     private GoogleMap googleMap;
+    private User currentUser;
 
     private void refreshFragment(){
         FragmentTransaction ft = getFragmentManager().beginTransaction();
@@ -64,14 +69,14 @@ public class DetailsFragment extends Fragment implements OnMapReadyCallback {
 
         TableLayout table = (TableLayout) root.findViewById(R.id.table_activity);
 
-        for (int i = 0; i < ActivityDataSource.getInstance().getUsers().length; i++) {
+        for (int i = 0; i < ActivityDataSourceManager.getInstance().getDataSource(currentUserID).getDescription().length; i++) {
 
 
             TableRow row = (TableRow)inflater.inflate(R.layout.fragment_details_attrib_row, null);
-            ((TextView)row.findViewById(R.id.dateTextView)).setText(ActivityDataSource.getInstance().get(i).getDatum());
-            ((TextView)row.findViewById(R.id.userTextView)).setText(ActivityDataSource.getInstance().get(i).getUser());
-            ((TextView)row.findViewById(R.id.agentTextView)).setText(ActivityDataSource.getInstance().get(i).getAgent());
-            ((TextView)row.findViewById(R.id.typeTextView)).setText(ActivityDataSource.getInstance().get(i).toString());
+            ((TextView)row.findViewById(R.id.dateTextView)).setText(ActivityDataSourceManager.getInstance().getDataSource(currentUserID).get(i).getDatum());
+            ((TextView)row.findViewById(R.id.userTextView)).setText(ActivityDataSourceManager.getInstance().getDataSource(currentUserID).get(i).getUser());
+            ((TextView)row.findViewById(R.id.agentTextView)).setText(ActivityDataSourceManager.getInstance().getDataSource(currentUserID).get(i).getAgent());
+            ((TextView)row.findViewById(R.id.typeTextView)).setText(ActivityDataSourceManager.getInstance().getDataSource(currentUserID).get(i).toString());
 
             row.setTag(i);
 
@@ -126,7 +131,7 @@ public class DetailsFragment extends Fragment implements OnMapReadyCallback {
                                     break;
                                 case 2://DELETE
                                     int positionInTable = (Integer) clickedRow.getTag();
-                                    ActivityDataSource.getInstance().remove(positionInTable);
+                                    ActivityDataSourceManager.getInstance().getDataSource(currentUserID).remove(positionInTable);
 
                                     Toast.makeText(getActivity(),"position: " + positionInTable,Toast.LENGTH_SHORT).show();
 
@@ -154,13 +159,13 @@ public class DetailsFragment extends Fragment implements OnMapReadyCallback {
     private void initializeCommentTable(View root, LayoutInflater inflater){
         final LinearLayout table = (LinearLayout) root.findViewById(R.id.comment_layout);
         final View finalroot = root;
-        for (int i = 0; i < CommentDataSource.getInstance().getUsers().length; i++) {
+        for (int i = 0; i < CommentDataSourceManager.getInstance().getDataSource(currentUserID).getDescription().length; i++) {
             final RelativeLayout view = (RelativeLayout) inflater.inflate(R.layout.fragment_details_comment_row, null);
 
-            Log.i(TAG,"i = " + i + ", text = " + CommentDataSource.getInstance().get(i).getComment());
+            Log.i(TAG,"i = " + i + ", text = " + CommentDataSourceManager.getInstance().getDataSource(currentUserID).get(i).getComment());
 
-            ((TextView)view.findViewById(R.id.commentTextView)).setText(CommentDataSource.getInstance().get(i).getComment());
-            ((TextView)view.findViewById(R.id.commentDate)).setText(CommentDataSource.getInstance().get(i).getUser() + " " + CommentDataSource.getInstance().get(i).getDate());
+            ((TextView)view.findViewById(R.id.commentTextView)).setText(CommentDataSourceManager.getInstance().getDataSource(currentUserID).get(i).getComment());
+            ((TextView)view.findViewById(R.id.commentDate)).setText(CommentDataSourceManager.getInstance().getDataSource(currentUserID).get(i).getUser() + " " + CommentDataSourceManager.getInstance().getDataSource(currentUserID).get(i).getDate());
 
 
             table.addView(view);
@@ -183,7 +188,7 @@ public class DetailsFragment extends Fragment implements OnMapReadyCallback {
                     SimpleDateFormat sdf = new SimpleDateFormat("HH:mm MMM dd.YYYY.", Locale.ENGLISH);
                     String date = sdf.format(new Date(milis));
 
-                    CommentDataSource.getInstance().add(new Comment(text,"user",date));
+                    CommentDataSourceManager.getInstance().getDataSource(currentUserID).add(new Comment(text,"user",date));
 
 
                     refreshFragment();
@@ -239,7 +244,13 @@ public class DetailsFragment extends Fragment implements OnMapReadyCallback {
 
     public DetailsFragment() {
         // Required empty public constructor
+
+        currentUser = UserDataSource.getInstance().getCurrentUser();
+
+        currentUserID = UserDataSource.getInstance().getID(currentUser);
     }
+
+
 
 
     @Override

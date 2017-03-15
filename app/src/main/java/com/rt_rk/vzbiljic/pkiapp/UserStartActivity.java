@@ -3,7 +3,6 @@ package com.rt_rk.vzbiljic.pkiapp;
 import android.app.Fragment;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -11,15 +10,10 @@ import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.Toast;
 
-import com.rt_rk.vzbiljic.pkiapp.fragments.DetailsFragment;
 import com.rt_rk.vzbiljic.pkiapp.fragments.PropertyListFragment;
 import com.rt_rk.vzbiljic.pkiapp.fragments.SearchFragment;
-import com.rt_rk.vzbiljic.pkiapp.utils.PropertyDataSource;
 
 /**
  * Created by Xeobo on 2/4/2017.
@@ -31,7 +25,7 @@ public class UserStartActivity extends StartActivity  implements SearchFragment.
     protected void initializeMenuItems(){
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
 
-        // get menu from navigationView
+        // getDataSource menu from navigationView
         Menu menu = navigationView.getMenu();
 
         menu.add(0,Menu.FIRST, Menu.NONE,"Listaj nekretnine").setIcon(R.drawable.ic_home_black_24dp);

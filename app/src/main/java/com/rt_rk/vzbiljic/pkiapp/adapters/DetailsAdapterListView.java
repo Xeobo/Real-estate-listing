@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.rt_rk.vzbiljic.pkiapp.R;
-import com.rt_rk.vzbiljic.pkiapp.utils.PropertyDataSource;
 
 /**
  * Created by vzbiljic on 13.3.17..

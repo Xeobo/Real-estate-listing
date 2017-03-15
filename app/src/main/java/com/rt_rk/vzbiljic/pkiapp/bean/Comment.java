@@ -4,7 +4,7 @@ package com.rt_rk.vzbiljic.pkiapp.bean;
  * Created by vzbiljic on 13.3.17..
  */
 
-public class Comment {
+public class Comment implements IBean{
     private String comment;
     private String user;
     private String date;

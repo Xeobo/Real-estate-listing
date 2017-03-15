@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by Xeobo on 2/4/2017.
  */
 
-public class Property {
+public class Property implements IBean{
     private int image;
     private String name;
     private String price;

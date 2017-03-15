@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import com.rt_rk.vzbiljic.pkiapp.adapters.Adapter;
 import com.rt_rk.vzbiljic.pkiapp.R;
-import com.rt_rk.vzbiljic.pkiapp.utils.PropertyDataSource;
+import com.rt_rk.vzbiljic.pkiapp.datasource.PropertyDataSource;
 
 /**
  * A simple {@link Fragment} subclass.

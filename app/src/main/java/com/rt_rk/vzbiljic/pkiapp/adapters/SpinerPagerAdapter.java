@@ -2,16 +2,13 @@ package com.rt_rk.vzbiljic.pkiapp.adapters;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.rt_rk.vzbiljic.pkiapp.R;
-import com.rt_rk.vzbiljic.pkiapp.utils.PropertyDataSource;
+import com.rt_rk.vzbiljic.pkiapp.datasource.PropertyDataSource;
 
 /**
  * Created by vzbiljic on 8.3.17..
@@ -28,7 +25,7 @@ public class SpinerPagerAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return PropertyDataSource.getInstance().getNames().length;
+        return PropertyDataSource.getInstance().getDescription().length;
     }
 
     @Override

@@ -1,10 +1,12 @@
 package com.rt_rk.vzbiljic.pkiapp.bean;
 
+import android.os.IBinder;
+
 /**
  * Created by vzbiljic on 13.3.17..
  */
 
-public class Activity {
+public class Activity implements IBean{
     private String datum, user,agent;
     private ActivityType type;
     private int amount;

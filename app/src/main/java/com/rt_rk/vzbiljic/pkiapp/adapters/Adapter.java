@@ -9,8 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.rt_rk.vzbiljic.pkiapp.R;
-import com.rt_rk.vzbiljic.pkiapp.bean.Property;
-import com.rt_rk.vzbiljic.pkiapp.utils.PropertyDataSource;
+import com.rt_rk.vzbiljic.pkiapp.datasource.PropertyDataSource;
 
 /**
  * Created by vzbiljic on 26.1.17..
@@ -22,7 +21,7 @@ public class Adapter extends ArrayAdapter<String> {
 
 
     public Adapter(Context context){
-        super(context, R.layout.model_list, PropertyDataSource.getInstance().getNames());
+        super(context, R.layout.model_list, PropertyDataSource.getInstance().getDescription());
 
         this.context = context;
     }

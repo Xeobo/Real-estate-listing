@@ -18,6 +18,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.rt_rk.vzbiljic.pkiapp.datasource.UserDataSource;
+
 public class LoginActivity extends AbstractActivity implements View.OnFocusChangeListener {
 
     @Override
@@ -47,6 +49,7 @@ public class LoginActivity extends AbstractActivity implements View.OnFocusChang
                     startActivity(intent);
                 }else if("user".equals(username.getText().toString()) && "user".equals(password.getText().toString())){
                     Toast.makeText(LoginActivity.this, "Welcome user!", Toast.LENGTH_SHORT).show();
+                    UserDataSource.getInstance().setCurrentUser(UserDataSource.getInstance().get(0));
                     Intent intent = new Intent(LoginActivity.this, UserStartActivity.class);
                     startActivity(intent);
                 }else{
