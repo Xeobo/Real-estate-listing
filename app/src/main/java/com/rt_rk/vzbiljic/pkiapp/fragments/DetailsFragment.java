@@ -126,7 +126,15 @@ public class DetailsFragment extends Fragment implements OnMapReadyCallback {
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             switch (position){
                                 case 0://EDIT
+                                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
 
+                                    // Replace whatever is in the fragment_container view with this fragment,
+                                    // and add the transaction to the back stack so the user can navigate back
+                                    transaction.replace(R.id.fragment_container, new AddActivityFragment());
+                                    transaction.addToBackStack(null);
+
+                                    // Commit the transaction
+                                    transaction.commit();
                                     break;
                                 case 1://ACCEPT
 

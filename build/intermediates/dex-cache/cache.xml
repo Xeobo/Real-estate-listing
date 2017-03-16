@@ -3,21 +3,12 @@
 
     <item
         is-multidex="true"
-        jar="/home/vzbiljic/courses/PKI-Android/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jar="C:\Users\Xeobo\Desktop\courses\pki-android\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="a1223e00ebe94a33951897d115a1c750e41a5ef2">
-        <dex dex="/home/vzbiljic/courses/PKI-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_014a6bfd12dca02dfa558e502e96ec9803e9fa21/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/vzbiljic/courses/PKI-Android/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
-        <dex dex="/home/vzbiljic/courses/PKI-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_c73162a9da3bb851f0e6415ac42e913ce163f423/classes.dex" />
+        sha1="aca936d7a8842fea8c2e4e7f8aa616a1f8a9eb18">
+        <dex dex="C:\Users\Xeobo\Desktop\courses\pki-android\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_1a435d11e8e40636949943e614bde13be8cc5d3a\classes.dex" />
     </item>
 
 </items>
