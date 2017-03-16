@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public abstract class StartActivity extends AbstractActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -25,6 +26,8 @@ public abstract class StartActivity extends AbstractActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        ((TextView)findViewById(R.id.mainName)).setText("Nekretnine");
+
 
         initMainLayout(savedInstanceState);
 
@@ -36,6 +39,7 @@ public abstract class StartActivity extends AbstractActivity
 
         initializeMenuItems();
     }
+
 
     @Override
     public void onBackPressed() {

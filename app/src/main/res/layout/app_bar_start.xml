@@ -20,13 +20,34 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@android:color/holo_red_dark"
             app:popupTheme="@style/PopupOverlay" >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/mainName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:text="TEXT"
+                    android:gravity="center"
+                    android:textColor="#fff"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginStart="20dp"
+                    android:foregroundGravity="center"
+                    android:textSize="30dp" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_margin="5dp"
+                    app:srcCompat="@drawable/homeicon" />
+            </RelativeLayout>
             
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
-                app:srcCompat="@drawable/homeicon" />
+
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
