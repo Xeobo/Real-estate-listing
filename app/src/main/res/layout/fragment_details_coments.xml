@@ -41,6 +41,7 @@
         android:layout_marginRight="10dp"
         android:layout_below="@+id/input_comment"
         android:id="@+id/add_comment"
+        android:layout_marginBottom="10dp"
         />
 
 </RelativeLayout>

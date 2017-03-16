@@ -72,7 +72,7 @@
                         android:paddingLeft="10dp"
                         android:background="@color/colorgrey"
                         android:layout_height="wrap_content"
-                        android:text="TextView" />
+                        android:text="Cena" />
 
                     <TextView
                         android:id="@+id/cena"
@@ -80,7 +80,6 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:textSize="25dp"
-
                         android:text="TextView" />
                 </TableRow>
                 <TableRow
@@ -110,15 +109,15 @@
                         android:textSize="25dp"
                         android:paddingLeft="10dp"
                         android:paddingTop="20dp"
-                        android:text="TextView" />
+                        android:text="Površina" />
 
                     <TextView
-                        android:id="@+id/povrsina"
+                        android:id="@+id/area"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:textSize="25dp"
-                        android:text="TextView" />
+                        android:text="67 m^2" />
                 </TableRow>
 
                 <TableRow
@@ -150,7 +149,7 @@
                         android:textSize="25dp"
                         android:paddingTop="20dp"
                         android:paddingLeft="10dp"
-                        android:text="TextView" />
+                        android:text="Struktura" />
 
                     <TextView
                         android:id="@+id/struktura"
@@ -190,7 +189,7 @@
                         android:textSize="25dp"
                         android:paddingTop="20dp"
                         android:paddingLeft="10dp"
-                        android:text="TextView" />
+                        android:text="Sprat" />
 
                     <TextView
                         android:id="@+id/sprat"
@@ -230,7 +229,7 @@
                         android:textSize="25dp"
                         android:paddingTop="20dp"
                         android:paddingLeft="10dp"
-                        android:text="TextView" />
+                        android:text="Grejanje" />
 
                     <TextView
                         android:id="@+id/grejanje"
@@ -268,7 +267,7 @@
                         android:textSize="25dp"
                         android:paddingTop="20dp"
                         android:paddingLeft="10dp"
-                        android:text="TextView" />
+                        android:text="Terasa" />
 
                     <TextView
                         android:id="@+id/terasa"
@@ -307,10 +306,10 @@
                         android:textSize="25dp"
                         android:paddingTop="20dp"
                         android:paddingLeft="10dp"
-                        android:text="TextView" />
+                        android:text="Tip" />
 
                     <TextView
-                        android:id="@+id/tip"
+                        android:id="@+id/type"
                         android:layout_weight="0.5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -346,7 +345,7 @@
                         android:textSize="25dp"
                         android:paddingTop="20dp"
                         android:paddingLeft="10dp"
-                        android:text="TextView" />
+                        android:text="Unešeno" />
 
                     <TextView
                         android:id="@+id/datumUnosa"
@@ -385,7 +384,7 @@
                         android:textSize="25dp"
                         android:paddingTop="20dp"
                         android:paddingLeft="10dp"
-                        android:text="TextView" />
+                        android:text="Uknjiženo" />
 
                     <TextView
                         android:id="@+id/uknjizeno"
@@ -424,7 +423,7 @@
                         android:textSize="25dp"
                         android:paddingTop="20dp"
                         android:paddingLeft="10dp"
-                        android:text="TextView" />
+                        android:text="Status" />
 
                     <TextView
                         android:id="@+id/status"

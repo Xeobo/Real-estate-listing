@@ -2,30 +2,12 @@
 <items version="2" >
 
     <item
-        is-multidex="false"
-        jar="/home/vzbiljic/.android/build-cache/6e06535a2d5bc525a2c5065131adfb5aa783b72c/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="04de44f90606c77f3b28cf44861f306290505aac">
-        <dex dex="/home/vzbiljic/courses/PKI-Android/app/build/intermediates/pre-dexed/debug/classes_dd6c408813a92bcb3ce3af01e8f1db774cc3137a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/vzbiljic/.android/build-cache/5b344ba4423d457709d2f0002f2bbbd4fc059d41/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
-        <dex dex="/home/vzbiljic/courses/PKI-Android/app/build/intermediates/pre-dexed/debug/classes_ac47a7e1ddc9e09239f8c49857953247fe367cfa.jar" />
-    </item>
-    <item
         is-multidex="true"
         jar="/home/vzbiljic/courses/PKI-Android/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="2476dba3778df237032e63524ab596770e5cdf99">
+        sha1="a1223e00ebe94a33951897d115a1c750e41a5ef2">
         <dex dex="/home/vzbiljic/courses/PKI-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_014a6bfd12dca02dfa558e502e96ec9803e9fa21/classes.dex" />
     </item>
     <item
@@ -36,87 +18,6 @@
         revision="25.0.0"
         sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
         <dex dex="/home/vzbiljic/courses/PKI-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_c73162a9da3bb851f0e6415ac42e913ce163f423/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/vzbiljic/.android/build-cache/a5626a257173239f24fe9d4aa24330969011c89a/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
-        <dex dex="/home/vzbiljic/courses/PKI-Android/app/build/intermediates/pre-dexed/debug/classes_db212f53cf9e5b0d48e39773daf24aec1adf5eda.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/vzbiljic/.android/build-cache/63dd84e3e14aa5f0a0bbaa2f54b630682c3824f4/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="fef2b3e4b6b1b0e5fe7b69fa137a5fa55a3182ab">
-        <dex dex="/home/vzbiljic/courses/PKI-Android/app/build/intermediates/pre-dexed/debug/classes_2c4e32237c33b6d5a3ee337637093cdf7ec36c6b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/vzbiljic/.android/build-cache/c937192daeb4a7ae2f2f1ce2deeae849ea1cc340/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="8e673cdfadd8f2d98fdb2fda2285c30f6e449782">
-        <dex dex="/home/vzbiljic/courses/PKI-Android/app/build/intermediates/pre-dexed/debug/classes_17d3caa116b2a7eaef4f47ae7ec731d0baa5430b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/vzbiljic/.android/build-cache/c5816c0c7168024fe7934ee82e9c00f24058d546/output/jars/libs/internal_impl-23.4.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
-        <dex dex="/home/vzbiljic/courses/PKI-Android/app/build/intermediates/pre-dexed/debug/internal_impl-23.4.0_995accf5b14b00f67c305710b9f1b263be7c38ff.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/vzbiljic/.android/build-cache/61b68025cdffaccf72f00f29f5a245dca939c1a0/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
-        <dex dex="/home/vzbiljic/courses/PKI-Android/app/build/intermediates/pre-dexed/debug/classes_bebb5844ad64ef61a22fe47ab3233bbbb0a8181b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/vzbiljic/.android/build-cache/602af5192bd0812d0eee4673e476e58219dc7ce5/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
-        <dex dex="/home/vzbiljic/courses/PKI-Android/app/build/intermediates/pre-dexed/debug/classes_8577f1cba81a522d2e651a9bd96025ac1ad4eceb.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/vzbiljic/.android/build-cache/c5816c0c7168024fe7934ee82e9c00f24058d546/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
-        <dex dex="/home/vzbiljic/courses/PKI-Android/app/build/intermediates/pre-dexed/debug/classes_8cb46d8c3a79c472ae4d8179122ccd9a26b2048e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/vzbiljic/.android/build-cache/24aa4e43a4e2bb1770941e920a0d992ebe1247e1/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
-        <dex dex="/home/vzbiljic/courses/PKI-Android/app/build/intermediates/pre-dexed/debug/classes_2e8ff6c86da9521979b0752093523c6533affcea.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/vzbiljic/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
-        <dex dex="/home/vzbiljic/courses/PKI-Android/app/build/intermediates/pre-dexed/debug/support-annotations-23.4.0_805ca40898416be317a51e599eb33b3293a2747e.jar" />
     </item>
 
 </items>

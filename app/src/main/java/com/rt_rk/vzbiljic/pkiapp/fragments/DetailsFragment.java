@@ -39,6 +39,7 @@ import com.rt_rk.vzbiljic.pkiapp.adapters.SpinerPagerAdapter;
 import com.rt_rk.vzbiljic.pkiapp.bean.Comment;
 import com.rt_rk.vzbiljic.pkiapp.bean.User;
 import com.rt_rk.vzbiljic.pkiapp.datasource.ActivityDataSource;
+import com.rt_rk.vzbiljic.pkiapp.datasource.PropertyDataSource;
 import com.rt_rk.vzbiljic.pkiapp.datasource.UserDataSource;
 import com.rt_rk.vzbiljic.pkiapp.datasource.manager.ActivityDataSourceManager;
 import com.rt_rk.vzbiljic.pkiapp.datasource.manager.CommentDataSourceManager;
@@ -58,6 +59,7 @@ public class DetailsFragment extends Fragment implements OnMapReadyCallback {
     private MapView mapView;
     private GoogleMap googleMap;
     private User currentUser;
+    private int currentPropertyID = 0;
 
     private void refreshFragment(){
         FragmentTransaction ft = getFragmentManager().beginTransaction();
@@ -154,6 +156,21 @@ public class DetailsFragment extends Fragment implements OnMapReadyCallback {
 
 
         }
+    }
+
+
+    private void initializeDetails(View root){
+        ((TextView)root.findViewById(R.id.detailsHeader)).setText(PropertyDataSource.getInstance().get(currentPropertyID).getName());
+        ((TextView)root.findViewById(R.id.cena)).setText(PropertyDataSource.getInstance().get(currentPropertyID).getPrice());
+        ((TextView)root.findViewById(R.id.struktura)).setText(PropertyDataSource.getInstance().get(currentPropertyID).getStructure());
+        ((TextView)root.findViewById(R.id.sprat)).setText(PropertyDataSource.getInstance().get(currentPropertyID).getFlor());
+        ((TextView)root.findViewById(R.id.grejanje)).setText(PropertyDataSource.getInstance().get(currentPropertyID).getHeating());
+        ((TextView)root.findViewById(R.id.terasa)).setText(PropertyDataSource.getInstance().get(currentPropertyID).getTerrace());
+        ((TextView)root.findViewById(R.id.type)).setText(PropertyDataSource.getInstance().get(currentPropertyID).getType());
+        ((TextView)root.findViewById(R.id.datumUnosa)).setText(PropertyDataSource.getInstance().get(currentPropertyID).getDateFrom());
+        ((TextView)root.findViewById(R.id.uknjizeno)).setText(PropertyDataSource.getInstance().get(currentPropertyID).getBooked());
+        ((TextView)root.findViewById(R.id.status)).setText(PropertyDataSource.getInstance().get(currentPropertyID).getStatus());
+//        ((TextView)root.findViewById(R.id.area)).setText(PropertyDataSource.getInstance().get(currentPropertyID).getSurfaceArea());
     }
 
     private void initializeCommentTable(View root, LayoutInflater inflater){
@@ -265,6 +282,8 @@ public class DetailsFragment extends Fragment implements OnMapReadyCallback {
         initializeActivityTable(root,inflater);
 
         initializeCommentTable(root,inflater);
+
+        initializeDetails(root);
 
         spinerPagerAdapter = new SpinerPagerAdapter(getActivity());
         viewPager.setAdapter(spinerPagerAdapter);
