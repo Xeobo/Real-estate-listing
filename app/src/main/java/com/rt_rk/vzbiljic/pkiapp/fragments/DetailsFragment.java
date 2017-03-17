@@ -3,7 +3,6 @@ package com.rt_rk.vzbiljic.pkiapp.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
@@ -51,7 +50,7 @@ import java.util.Locale;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DetailsFragment extends Fragment implements OnMapReadyCallback {
+public class DetailsFragment extends AbstractFragment implements OnMapReadyCallback {
     private static final String TAG = "DetailsFragment";
     private final int currentUserID;
     private SpinerPagerAdapter spinerPagerAdapter;
@@ -61,24 +60,18 @@ public class DetailsFragment extends Fragment implements OnMapReadyCallback {
     private User currentUser;
     private int currentPropertyID = 0;
 
-    private void refreshFragment(){
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.detach(DetailsFragment.this).attach(DetailsFragment.this).commit();
-    }
-
-
     private void initializeActivityTable(View root, final LayoutInflater inflater){
 
         TableLayout table = (TableLayout) root.findViewById(R.id.table_activity);
 
-        for (int i = 0; i < ActivityDataSourceManager.getInstance().getDataSource(currentUserID).getDescription().length; i++) {
+        for (int i = 0; i < ActivityDataSourceManager.getInstance().getDataSource(currentPropertyID).getDescription().length; i++) {
 
 
             TableRow row = (TableRow)inflater.inflate(R.layout.fragment_details_attrib_row, null);
-            ((TextView)row.findViewById(R.id.dateTextView)).setText(ActivityDataSourceManager.getInstance().getDataSource(currentUserID).get(i).getDatum());
-            ((TextView)row.findViewById(R.id.userTextView)).setText(ActivityDataSourceManager.getInstance().getDataSource(currentUserID).get(i).getUser());
-            ((TextView)row.findViewById(R.id.agentTextView)).setText(ActivityDataSourceManager.getInstance().getDataSource(currentUserID).get(i).getAgent());
-            ((TextView)row.findViewById(R.id.typeTextView)).setText(ActivityDataSourceManager.getInstance().getDataSource(currentUserID).get(i).toString());
+            ((TextView)row.findViewById(R.id.dateTextView)).setText(ActivityDataSourceManager.getInstance().getDataSource(currentPropertyID).get(i).getDatum());
+            ((TextView)row.findViewById(R.id.userTextView)).setText(ActivityDataSourceManager.getInstance().getDataSource(currentPropertyID).get(i).getUser());
+            ((TextView)row.findViewById(R.id.agentTextView)).setText(ActivityDataSourceManager.getInstance().getDataSource(currentPropertyID).get(i).getAgent());
+            ((TextView)row.findViewById(R.id.typeTextView)).setText(ActivityDataSourceManager.getInstance().getDataSource(currentPropertyID).get(i).toString());
 
             row.setTag(i);
 
@@ -124,24 +117,22 @@ public class DetailsFragment extends Fragment implements OnMapReadyCallback {
                     lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            int positionInTable = (Integer) clickedRow.getTag();
                             switch (position){
                                 case 0://EDIT
-                                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
 
-                                    // Replace whatever is in the fragment_container view with this fragment,
-                                    // and add the transaction to the back stack so the user can navigate back
-                                    transaction.replace(R.id.fragment_container, new AddActivityFragment());
-                                    transaction.addToBackStack(null);
+                                    EditActivityFragment fragment = new EditActivityFragment();
+                                    fragment.setActivity(ActivityDataSourceManager.getInstance().getDataSource(currentPropertyID).get(positionInTable));
+                                    fragment.setFragment(DetailsFragment.this);
 
-                                    // Commit the transaction
-                                    transaction.commit();
+                                    changeToFragment(fragment);
                                     break;
                                 case 1://ACCEPT
 
                                     break;
                                 case 2://DELETE
-                                    int positionInTable = (Integer) clickedRow.getTag();
-                                    ActivityDataSourceManager.getInstance().getDataSource(currentUserID).remove(positionInTable);
+
+                                    ActivityDataSourceManager.getInstance().getDataSource(currentPropertyID).remove(positionInTable);
 
                                     Toast.makeText(getActivity(),"position: " + positionInTable,Toast.LENGTH_SHORT).show();
 
@@ -184,13 +175,13 @@ public class DetailsFragment extends Fragment implements OnMapReadyCallback {
     private void initializeCommentTable(View root, LayoutInflater inflater){
         final LinearLayout table = (LinearLayout) root.findViewById(R.id.comment_layout);
         final View finalroot = root;
-        for (int i = 0; i < CommentDataSourceManager.getInstance().getDataSource(currentUserID).getDescription().length; i++) {
+        for (int i = 0; i < CommentDataSourceManager.getInstance().getDataSource(currentPropertyID).getDescription().length; i++) {
             final RelativeLayout view = (RelativeLayout) inflater.inflate(R.layout.fragment_details_comment_row, null);
 
-            Log.i(TAG,"i = " + i + ", text = " + CommentDataSourceManager.getInstance().getDataSource(currentUserID).get(i).getComment());
+            Log.i(TAG,"i = " + i + ", text = " + CommentDataSourceManager.getInstance().getDataSource(currentPropertyID).get(i).getComment());
 
-            ((TextView)view.findViewById(R.id.commentTextView)).setText(CommentDataSourceManager.getInstance().getDataSource(currentUserID).get(i).getComment());
-            ((TextView)view.findViewById(R.id.commentDate)).setText(CommentDataSourceManager.getInstance().getDataSource(currentUserID).get(i).getUser() + " " + CommentDataSourceManager.getInstance().getDataSource(currentUserID).get(i).getDate());
+            ((TextView)view.findViewById(R.id.commentTextView)).setText(CommentDataSourceManager.getInstance().getDataSource(currentPropertyID).get(i).getComment());
+            ((TextView)view.findViewById(R.id.commentDate)).setText(CommentDataSourceManager.getInstance().getDataSource(currentPropertyID).get(i).getUser() + " " + CommentDataSourceManager.getInstance().getDataSource(currentUserID).get(i).getDate());
 
 
             table.addView(view);
@@ -213,7 +204,7 @@ public class DetailsFragment extends Fragment implements OnMapReadyCallback {
                     SimpleDateFormat sdf = new SimpleDateFormat("HH:mm MMM dd.YYYY.", Locale.ENGLISH);
                     String date = sdf.format(new Date(milis));
 
-                    CommentDataSourceManager.getInstance().getDataSource(currentUserID).add(new Comment(text,"user",date));
+                    CommentDataSourceManager.getInstance().getDataSource(currentPropertyID).add(new Comment(text,"user",date));
 
 
                     refreshFragment();
@@ -222,13 +213,12 @@ public class DetailsFragment extends Fragment implements OnMapReadyCallback {
         });
     }
 
+
+
     private void initializeMaps(View root, Bundle savedInstanceState) {
         mapView = (MapView) root.findViewById(R.id.map);
-
         mapView.onCreate(savedInstanceState);
-
         mapView.onResume();
-
         mapView.getMapAsync(this);
 
         try {
@@ -276,7 +266,9 @@ public class DetailsFragment extends Fragment implements OnMapReadyCallback {
     }
 
 
-
+    public void setCurrentPropertyID(int currentPropertyID) {
+        this.currentPropertyID = currentPropertyID;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

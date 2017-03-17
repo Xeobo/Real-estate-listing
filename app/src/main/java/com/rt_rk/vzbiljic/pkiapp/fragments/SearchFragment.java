@@ -24,7 +24,7 @@ import com.rt_rk.vzbiljic.pkiapp.R;
  * {@link SearchFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
  */
-public class SearchFragment extends Fragment {
+public class SearchFragment extends AbstractFragment {
 
     private OnFragmentInteractionListener mListener;
     private View root;

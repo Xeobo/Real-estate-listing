@@ -84,5 +84,22 @@ public class Activity implements IBean{
                  default: return "drugi tip";
              }
         }
+        public static String[] stringValues(){
+            return new String[]{
+                    "obilazak",
+                    "ponuda",
+                    "zakazan"
+            };
+
+        }
+        public static ActivityType fromString(String value){
+            switch (value){
+                case "obilazak": return VISIT;
+                case "ponuda": return OFFER;
+                case "zakazan": return APPOINTMENT;
+                default: return null;
+            }
+
+        }
     }
 }

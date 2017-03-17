@@ -18,7 +18,8 @@ public abstract class AbstractManager<T extends AbstractDataSource> {
 
     public T getDataSource(int i){
         if( i >= arrayList.size()){
-            arrayList.add(i, instatiate());
+            for(int j=arrayList.size();j<=i;j++)
+                arrayList.add(instatiate());
         }
 
         return arrayList.get(i);

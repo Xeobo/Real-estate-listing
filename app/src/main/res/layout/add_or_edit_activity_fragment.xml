@@ -76,16 +76,16 @@
         android:layout_marginTop="23dp"
         android:text="Napomena" />
 
-    <EditText
-        android:id="@+id/napomena"
+    <Spinner
+        android:id="@+id/add_edit_note"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        android:layout_alignBaseline="@+id/textView15"
-        android:layout_alignBottom="@+id/textView15"
-        android:layout_alignStart="@+id/add_edit_agent" />
+        android:layout_alignTop="@+id/textView15"
+        android:layout_alignStart="@+id/add_edit_agent"
+        android:layout_alignEnd="@+id/add_edit_agent" />
 
     <Button
         android:id="@+id/add_edit_activity_details"

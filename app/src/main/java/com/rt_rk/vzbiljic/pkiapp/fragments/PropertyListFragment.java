@@ -21,7 +21,7 @@ import com.rt_rk.vzbiljic.pkiapp.datasource.PropertyDataSource;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PropertyListFragment extends Fragment {
+public class PropertyListFragment extends AbstractFragment {
 
     public PropertyListFragment() {
         // Required empty public constructor
@@ -58,16 +58,9 @@ public class PropertyListFragment extends Fragment {
 
                 // Create fragment and give it an argument specifying the article it should show
                 DetailsFragment newFragment = new DetailsFragment();
+                newFragment.setCurrentPropertyID(position);
 
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-
-                // Replace whatever is in the fragment_container view with this fragment,
-                // and add the transaction to the back stack so the user can navigate back
-                transaction.replace(R.id.fragment_container, newFragment);
-                transaction.addToBackStack(null);
-
-                // Commit the transaction
-                transaction.commit();
+                changeToFragment(newFragment);
             }
         });
 
