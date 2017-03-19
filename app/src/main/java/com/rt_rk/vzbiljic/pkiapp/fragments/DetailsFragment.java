@@ -83,9 +83,7 @@ public class DetailsFragment extends AbstractFragment implements OnMapReadyCallb
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                     View mView = inflater.inflate(R.layout.fragment_details_dialog_activity,null);
 
-
                     final TableRow clickedRow = (TableRow) v;
-
 
                     //date
                     TextView dialogText = (TextView) mView.findViewById(R.id.dialog_date);
@@ -107,8 +105,6 @@ public class DetailsFragment extends AbstractFragment implements OnMapReadyCallb
 
                     ListView lv = (ListView)mView.findViewById(R.id.details_list);
                     lv.setAdapter(new DetailsAdapterListView(getActivity()));
-
-
 
                     final AlertDialog dialog = builder.create();
                     dialog.show();
@@ -257,6 +253,11 @@ public class DetailsFragment extends AbstractFragment implements OnMapReadyCallb
         });
     }
 
+    @Override
+    protected CharSequence getHeading() {
+        return "Nekretnina";
+    }
+
     public DetailsFragment() {
         // Required empty public constructor
 
@@ -271,7 +272,7 @@ public class DetailsFragment extends AbstractFragment implements OnMapReadyCallb
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View createView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_details, (FrameLayout) getActivity().findViewById(R.id.fragment_container), false);
@@ -305,6 +306,16 @@ public class DetailsFragment extends AbstractFragment implements OnMapReadyCallb
             }
         });
 
+        ((Button)root.findViewById(R.id.add_activity)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AddActivityFragment addActivityFragment = new AddActivityFragment();
+                addActivityFragment.setCurrentPropertyID(currentPropertyID);
+                addActivityFragment.setFragment(DetailsFragment.this);
+
+                changeToFragment(addActivityFragment);
+            }
+        });
 
         return root;
     }

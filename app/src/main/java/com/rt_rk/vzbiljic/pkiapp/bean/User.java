@@ -7,18 +7,24 @@ package com.rt_rk.vzbiljic.pkiapp.bean;
 public class User implements IBean {
     private String username;
     private String password;
+    private String agency;
+    private String telephone;
     private UserType type;
 
-    public User(String username, String password) {
+
+    public User(String username, String password, String agency, String telephone, UserType type) {
         this.username = username;
         this.password = password;
-        type = UserType.USER;
+        this.agency = agency;
+        this.telephone = telephone;
+        this.type = type;
     }
 
-    public User(String username, String password, UserType type) {
+    public User(String username, String password, String agency, String telephone) {
         this.username = username;
         this.password = password;
-        this.type = type;
+        this.agency = agency;
+        this.telephone = telephone;
     }
 
     public String getUsername() {
@@ -43,6 +49,22 @@ public class User implements IBean {
 
     public void setType(UserType type) {
         this.type = type;
+    }
+
+    public String getAgency() {
+        return agency;
+    }
+
+    public void setAgency(String agency) {
+        this.agency = agency;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 
     public enum UserType{

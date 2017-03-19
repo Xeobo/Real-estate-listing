@@ -87,6 +87,28 @@
         android:layout_alignStart="@+id/add_edit_agent"
         android:layout_alignEnd="@+id/add_edit_agent" />
 
+    <TextView
+        android:id="@+id/add_edit_price_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView14"
+        android:layout_below="@+id/add_edit_note"
+        android:layout_marginTop="23dp"
+        android:visibility="invisible"
+        android:text="Ponuda(€)" />
+
+    <EditText
+        android:id="@+id/add_edit_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:text="0"
+        android:visibility="invisible"
+        android:layout_below="@id/add_edit_note"
+        android:layout_alignStart="@+id/add_edit_agent"
+        android:layout_alignEnd="@+id/add_edit_agent" />
+
     <Button
         android:id="@+id/add_edit_activity_details"
         android:layout_width="wrap_content"

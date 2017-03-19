@@ -1,17 +1,16 @@
-package com.rt_rk.vzbiljic.pkiapp;
+package com.rt_rk.vzbiljic.pkiapp.activities;
 
-import android.app.Fragment;
-import android.net.Uri;
-import android.os.Bundle;
-import android.support.design.widget.NavigationView;
+
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
+
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.rt_rk.vzbiljic.pkiapp.R;
 import com.rt_rk.vzbiljic.pkiapp.fragments.PropertyListFragment;
 import com.rt_rk.vzbiljic.pkiapp.fragments.SearchFragment;
 
@@ -19,70 +18,26 @@ import com.rt_rk.vzbiljic.pkiapp.fragments.SearchFragment;
  * Created by Xeobo on 2/4/2017.
  */
 
-public class UserStartActivity extends StartActivity  implements SearchFragment.OnFragmentInteractionListener{
+public class UserActivity extends StartFragmentActivity  {
 
 
-    protected void initializeMenuItems(){
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-
-        // getDataSource menu from navigationView
-        Menu menu = navigationView.getMenu();
+    protected void initializeMenuItems(Menu menu){
 
         menu.add(0,Menu.FIRST, Menu.NONE,"Listaj nekretnine").setIcon(R.drawable.ic_home_black_24dp);
         menu.add(0,Menu.FIRST + 1,Menu.NONE,"Pretrazi").setIcon(R.drawable.ic_search_black_24dp);
         menu.add(0,Menu.FIRST + 2,Menu.NONE,"Odjavi se").setIcon(R.drawable.ic_mood_bad_black_24dp);
-
-        // add NavigationItemSelectedListener to check the navigation clicks
-        navigationView.setNavigationItemSelectedListener(this);
     }
 
     protected  int getMainLayout(){
         return R.layout.content_start;
     }
 
-    protected void initMainLayout(Bundle savedInstanceState){
-        // Check that the activity is using the layout version with
-        // the fragment_container FrameLayout
-        if (findViewById(R.id.fragment_container) != null) {
-
-            // However, if we're being restored from a previous state,
-            // then we don't need to do anything and should return or else
-            // we could end up with overlapping fragments.
-            if (savedInstanceState != null) {
-                return;
-            }
-            Log.i("UserStartActivity","R.id.fragment_container found");
-//            CoordinatorLayout coordinatorLayout = (CoordinatorLayout)findViewById(R.id.app_bar_start);
-//            coordinatorLayout.addView(getLayoutInflater().inflate(getMainLayout(), coordinatorLayout,false));
-
-            // Create a new Fragment to be placed in the activity layout
-            PropertyListFragment firstFragment = new PropertyListFragment();
-
-            // In case this activity was started with special instructions from an
-            // Intent, pass the Intent's extras to the fragment as arguments
-            firstFragment.setArguments(getIntent().getExtras());
-
-            // Add the fragment to the 'fragment_container' FrameLayout
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment_container, firstFragment).commit();
-
-
-
-        }
-
-
-
-    }
-
-
     @Override
-    public void onAttachFragment(Fragment fragment) {
-        super.onAttachFragment(fragment);
-
-
-        Log.i("UserStartActivity","onAttachFragment");
-
+    protected Fragment getMainFragment() {
+        PropertyListFragment pp = new PropertyListFragment();
+        return pp;
     }
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -118,13 +73,13 @@ public class UserStartActivity extends StartActivity  implements SearchFragment.
             transaction.commit();
         } else if (id == Menu.FIRST + 2) {
             Toast.makeText(
-                    UserStartActivity.this,
+                    UserActivity.this,
                     "Menu.FIRST + 2",
                     Toast.LENGTH_SHORT
             ).show();
         } else {
             Toast.makeText(
-                    UserStartActivity.this,
+                    UserActivity.this,
                     "BAAAD",
                     Toast.LENGTH_SHORT
             ).show();
@@ -135,8 +90,4 @@ public class UserStartActivity extends StartActivity  implements SearchFragment.
         return true;
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
 }

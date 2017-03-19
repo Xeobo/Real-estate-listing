@@ -26,62 +26,64 @@ import java.util.Calendar;
 public class EditActivityFragment extends AbstractManageActivityFragment {
     private static final String TAG = "EditActivityFragment";
     private Activity activity;
-    private Fragment fragment;
+
+    @Override
+    protected int getSpinnerStart(){
+        if(null != activity) {
+            return activity.getType().ordinal();
+        }
+        return super.getSpinnerStart();
+    }
+
+
+    @Override
+    protected void updateDataSource(Calendar date, String user, String agent, Activity.ActivityType note,int amount) {
+        if(null != activity){
+            SimpleDateFormat format = new SimpleDateFormat("dd.MM.YYYY");
+
+            activity.setAgent(agent);
+            activity.setUser(user);
+            activity.setDatum(format.format(date.getTime()));
+
+            if(note == Activity.ActivityType.OFFER){
+                //TODO read from amount input fied;
+
+                activity.setAmount(amount);
+            }
+            activity.setType(note);
+
+        }else{
+            Log.w(TAG,"Editing activity not set!");
+        }
+    }
+
+    @Override
+    protected void initLayout(View root) {
+        ((Button)root.findViewById(R.id.add_edit_activity_details)).setText("Izmeni");
+
+        if(null != activity){
+            ((AutoCompleteTextView)root.findViewById(R.id.add_edit_user)).setText(activity.getUser());
+            ((AutoCompleteTextView)root.findViewById(R.id.add_edit_agent)).setText(activity.getAgent());
+            ((TextView)root.findViewById(R.id.add_edit_date)).setText(activity.getDatum());
+            ((Spinner)root.findViewById(R.id.add_edit_note)).setSelection(activity.getType().ordinal());
+            EditText et = (EditText)root.findViewById(R.id.add_edit_price);
+            et.setText(activity.getAmount() + "");
+
+        }else{
+            Log.e(TAG,"Editing activity not set!");
+        }
+
+    }
+
+    @Override
+    protected CharSequence getHeading() {
+        return "Izmena";
+    }
 
 
     public void setActivity(Activity activity){
         this.activity = activity;
     }
 
-    public void setFragment(Fragment fragment){
-        this.fragment = fragment;
-    }
 
-    @Override
-    protected void updateDataSource(Calendar date, String user, String agent, String note) {
-        if(null != activity){
-            SimpleDateFormat format = new SimpleDateFormat("dd.MM.YYYY");
-
-
-            activity.setAgent(agent);
-            activity.setUser(user);
-            activity.setDatum(format.format(date.getTime()));
-
-
-            if(note.equals(Activity.ActivityType.OFFER.toString())){
-                //TODO read from amount input fied;
-                activity.setAmount(150);
-            }
-            activity.setType(Activity.ActivityType.fromString(note));
-
-        }else{
-            Log.w(TAG,"Editing activity not set!");
-        }
-
-        if(null != fragment) {
-            changeToFragment(fragment);
-
-        }else{
-            Log.w(TAG,"Return Fragment not set!!");
-        }
-    }
-
-    @Override
-    protected void initLayout(View root) {
-        ((TextView)getActivity().findViewById(R.id.mainName)).setText("Izmena");
-        ((Button)root.findViewById(R.id.add_edit_activity_details)).setText("Izmeni");
-
-
-
-        if(null != activity){
-            ((AutoCompleteTextView)root.findViewById(R.id.add_edit_user)).setText(activity.getUser());
-            ((AutoCompleteTextView)root.findViewById(R.id.add_edit_agent)).setText(activity.getAgent());
-            ((TextView)root.findViewById(R.id.add_edit_date)).setText(activity.getDatum());
-
-            ((Spinner)root.findViewById(R.id.add_edit_note)).setSelection(activity.getType().ordinal());
-        }else{
-            Log.e(TAG,"Editing activity not set!");
-        }
-
-    }
 }

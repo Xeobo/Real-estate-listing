@@ -14,14 +14,14 @@ import com.rt_rk.vzbiljic.pkiapp.datasource.PropertyDataSource;
 /**
  * Created by vzbiljic on 26.1.17..
  */
-public class Adapter extends ArrayAdapter<String> {
+public class PropertyListAdapter extends ArrayAdapter<String> {
 
     private Context context;
     private LayoutInflater inflater;
 
 
-    public Adapter(Context context){
-        super(context, R.layout.model_list, PropertyDataSource.getInstance().getDescription());
+    public PropertyListAdapter(Context context){
+        super(context, R.layout.property_model_list, PropertyDataSource.getInstance().getDescription());
 
         this.context = context;
     }
@@ -32,7 +32,7 @@ public class Adapter extends ArrayAdapter<String> {
         if(convertView == null){
             inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-            convertView = inflater.inflate(R.layout.model_list,null);
+            convertView = inflater.inflate(R.layout.property_model_list,null);
         }
 
         final ViewHolder viewHolder = new ViewHolder();

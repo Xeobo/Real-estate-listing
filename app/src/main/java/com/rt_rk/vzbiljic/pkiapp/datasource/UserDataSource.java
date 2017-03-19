@@ -13,12 +13,16 @@ public class UserDataSource extends AbstractDataSource<User> {
     private User currentUser;
 
     private UserDataSource(){
-        add(new User("user","user"));
-        add(new User("Pera","Pera"));
-        add(new User("Djoka","Djoka"));
-        add(new User("Marko","Marko"));
-        add(new User("Stefan","Stefan"));
-        add(new User("Milos","Milos"));
+        add(new User("user","user","BG Stan","0631234567"));
+        add(new User("Petar","Petar","Life Home","0631234567"));
+        add(new User("Janko","Janko","Krov","0631234567"));
+        add(new User("Jovan","Jovan","Moje Nekretnine","0631234567"));
+        add(new User("Mirko","Mirko","BG Stan","0631234567"));
+        add(new User("Đorđe","Đorđe","Krov","0631234567"));
+        add(new User("Branko","Branko","City Expert","0631234567"));
+        add(new User("Marko","Marko","BG Stan","0631234567"));
+        add(new User("Stefan","Stefan","Life Home","0631234567"));
+        add(new User("Milos","Milos","Krov","0631234567"));
     }
 
     public static UserDataSource getInstance(){

@@ -1,4 +1,4 @@
-package com.rt_rk.vzbiljic.pkiapp;
+package com.rt_rk.vzbiljic.pkiapp.activities;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.rt_rk.vzbiljic.pkiapp.R;
+
 /**
  * Created by Xeobo on 1/21/2017.
  */
@@ -16,7 +18,7 @@ public abstract class AbstractActivity extends AppCompatActivity {
     private String TAG = "AbstractActivity";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected final void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

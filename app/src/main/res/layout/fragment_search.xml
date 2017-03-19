@@ -446,7 +446,8 @@
             android:layout_alignRight="@+id/streetNumberEdit"
             android:text="Petrazi"
             android:id="@+id/search"
-            android:theme="@style/SCBSwitch"
+            android:background="@color/red"
+            android:textColor="#fff"
             />
 
 

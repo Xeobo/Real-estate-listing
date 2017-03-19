@@ -1,23 +1,16 @@
-package com.rt_rk.vzbiljic.pkiapp;
+package com.rt_rk.vzbiljic.pkiapp.activities;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.view.animation.Animation;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.rt_rk.vzbiljic.pkiapp.R;
 import com.rt_rk.vzbiljic.pkiapp.datasource.UserDataSource;
 
 public class LoginActivity extends AbstractActivity implements View.OnFocusChangeListener {
@@ -45,12 +38,12 @@ public class LoginActivity extends AbstractActivity implements View.OnFocusChang
                 EditText password = (EditText) findViewById(R.id.password);
                 if("admin".equals(username.getText().toString()) && "admin".equals(password.getText().toString()) ) {
                     Toast.makeText(LoginActivity.this, "Welcome admin!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
                     startActivity(intent);
                 }else if("user".equals(username.getText().toString()) && "user".equals(password.getText().toString())){
                     Toast.makeText(LoginActivity.this, "Welcome user!", Toast.LENGTH_SHORT).show();
                     UserDataSource.getInstance().setCurrentUser(UserDataSource.getInstance().get(0));
-                    Intent intent = new Intent(LoginActivity.this, UserStartActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, UserActivity.class);
                     startActivity(intent);
                 }else{
                     Toast.makeText(LoginActivity.this, "Wrong credentials", Toast.LENGTH_SHORT).show();

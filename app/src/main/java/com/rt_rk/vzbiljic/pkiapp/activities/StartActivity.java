@@ -1,4 +1,4 @@
-package com.rt_rk.vzbiljic.pkiapp;
+package com.rt_rk.vzbiljic.pkiapp.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -10,10 +10,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.rt_rk.vzbiljic.pkiapp.R;
+
 public abstract class StartActivity extends AbstractActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    protected abstract void initializeMenuItems();
+    protected abstract void initializeMenuItems(Menu menu);
 
     protected abstract int getMainLayout();
 
@@ -21,13 +23,10 @@ public abstract class StartActivity extends AbstractActivity
 
 
     @Override
-    protected void onCreateBase(Bundle savedInstanceState) {
+    protected final void onCreateBase(Bundle savedInstanceState) {
         setContentView(R.layout.activity_start);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        ((TextView)findViewById(R.id.mainName)).setText("Nekretnine");
-
 
         initMainLayout(savedInstanceState);
 
@@ -37,7 +36,12 @@ public abstract class StartActivity extends AbstractActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        initializeMenuItems();
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+
+        initializeMenuItems(navigationView.getMenu());
+
+        // add NavigationItemSelectedListener to check the navigation clicks
+        navigationView.setNavigationItemSelectedListener(this);
     }
 
 

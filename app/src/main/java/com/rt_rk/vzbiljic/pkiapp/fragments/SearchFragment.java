@@ -44,7 +44,12 @@ public class SearchFragment extends AbstractFragment {
         }
     }
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    protected CharSequence getHeading() {
+        return "Pretraga";
+    }
+
+    @Override
+    public View createView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         root = inflater.inflate(R.layout.fragment_search, container, false);
@@ -100,7 +105,8 @@ public class SearchFragment extends AbstractFragment {
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    Fragment fragment = new PropertyListFragment();
+                    changeToFragment(fragment);
                 }
             });
         }

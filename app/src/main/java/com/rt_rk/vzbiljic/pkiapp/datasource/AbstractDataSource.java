@@ -32,6 +32,10 @@ public abstract class AbstractDataSource<T extends IBean>{
         return list.remove(index);
     }
 
+    public int size(){
+        return list.size();
+    }
+
     public String[] getDescription(){
         String[] names = new String[list.size()];
 
