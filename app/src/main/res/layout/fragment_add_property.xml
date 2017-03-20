@@ -1,0 +1,395 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.rt_rk.vzbiljic.pkiapp.fragments.SearchFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/hello_blank_fragment"
+            android:background="@color/colorAccent">
+
+
+            <TextView
+                android:text="Cena($):"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="27dp"
+                android:id="@+id/textView3"
+                android:textStyle="normal|bold" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:id="@+id/fromPrice"
+                android:layout_alignBaseline="@+id/textView3"
+                android:layout_toEndOf="@+id/textView3"
+                android:layout_marginEnd="10dp"
+                android:textAlignment="textEnd"
+                android:elevation="13dp"
+                />
+
+            <View style="@style/Divider"
+                android:id="@+id/separatorone"
+                android:layout_below="@+id/fromPrice"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:text="Povrsina:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/separatorone"
+                android:layout_marginTop="10dp"
+                android:id="@+id/povrsina"
+                android:textStyle="normal|bold"
+                android:layout_alignEnd="@+id/textView3"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_alignBaseline="@+id/povrsina"
+                android:layout_toEndOf="@+id/povrsina"
+                android:layout_marginEnd="10dp"
+                android:textAlignment="textEnd"
+                android:id="@+id/fromSurface" />
+
+            <View style="@style/Divider"
+                android:id="@+id/separatortwo"
+                android:layout_below="@+id/fromSurface"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:text="Struktura:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/separatortwo"
+                android:layout_marginTop="10dp"
+                android:id="@+id/struktura"
+                android:textStyle="normal|bold"
+                android:layout_alignEnd="@+id/textView3"/>
+
+            <Spinner
+                android:id="@+id/structure_spinner"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:layout_alignBottom="@+id/struktura"
+                android:layout_toEndOf="@+id/struktura"/>
+
+            <View style="@style/Divider"
+                android:id="@+id/separatorthree"
+                android:layout_below="@+id/structure_spinner"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:text="Mesto:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/separatorthree"
+                android:layout_marginTop="10dp"
+                android:id="@+id/place"
+                android:textStyle="normal|bold"
+                android:layout_alignEnd="@+id/textView3"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:layout_marginEnd="10dp"
+                android:layout_alignBaseline="@+id/place"
+                android:layout_toEndOf="@+id/place"
+                android:id="@+id/placeEdit" />
+
+            <View style="@style/Divider"
+                android:id="@+id/separatorfour"
+                android:layout_below="@+id/placeEdit"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:text="Opstina:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/separatorfour"
+                android:layout_marginTop="10dp"
+                android:id="@+id/commune"
+                android:textStyle="normal|bold"
+                android:layout_alignEnd="@+id/textView3"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:layout_marginEnd="10dp"
+                android:layout_alignBaseline="@+id/commune"
+                android:layout_toEndOf="@+id/commune"
+                android:id="@+id/communeEdit" />
+
+            <View style="@style/Divider"
+                android:id="@+id/separatorfive"
+                android:layout_below="@+id/communeEdit"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:text="Ulica:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/separatorfive"
+                android:layout_marginTop="10dp"
+                android:id="@+id/street"
+                android:textStyle="normal|bold"
+                android:layout_alignEnd="@+id/textView3"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:layout_marginEnd="10dp"
+                android:layout_alignBaseline="@+id/street"
+                android:layout_toEndOf="@+id/street"
+                android:maxWidth="20dp"
+                android:id="@+id/streetEdit" />
+
+            <View style="@style/Divider"
+                android:id="@+id/separatorsix"
+                android:layout_below="@+id/streetEdit"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:text="Broj:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/separatorsix"
+                android:layout_marginTop="10dp"
+                android:id="@+id/streetNumber"
+                android:textStyle="normal|bold"
+                android:layout_alignEnd="@+id/textView3"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:inputType="number"
+                android:layout_alignBaseline="@+id/streetNumber"
+                android:layout_toEndOf="@+id/streetNumber"
+                android:id="@+id/streetNumberEdit" />
+
+            <View style="@style/Divider"
+                android:id="@+id/separatorseven"
+                android:layout_below="@+id/streetNumberEdit"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:text="Terasa:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/separatorseven"
+                android:layout_marginTop="10dp"
+                android:id="@+id/balcony"
+                android:textStyle="normal|bold"
+                android:layout_alignEnd="@+id/textView3"/>
+
+            <android.support.v7.widget.SwitchCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/balcony"
+                android:layout_alignRight="@+id/streetNumberEdit"
+                android:id="@+id/balconySwitch"
+                android:theme="@style/SCBSwitch"
+                android:bufferType="spannable" />
+
+            <View
+                style="@style/Divider"
+                android:id="@+id/separatoreight"
+                android:layout_below="@+id/balconySwitch"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:text="Tip:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/separatoreight"
+                android:layout_marginTop="10dp"
+                android:id="@+id/type"
+                android:textStyle="normal|bold"
+                android:layout_alignEnd="@+id/textView3"/>
+
+            <Spinner
+                android:id="@+id/type_spinner"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:layout_alignBottom="@+id/type"
+                android:layout_toEndOf="@+id/type"
+                />
+            <View
+                style="@style/Divider"
+                android:id="@+id/separatornine"
+                android:layout_below="@+id/type_spinner"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:text="Datum\n Unosa:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/separatornine"
+                android:id="@+id/inputDate"
+                android:layout_alignEnd="@+id/textView3"
+                android:textStyle="normal|bold" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:layout_marginEnd="10dp"
+                android:id="@+id/inputDateFrom"
+                android:layout_alignBaseline="@+id/inputDate"
+                android:layout_toEndOf="@+id/inputDate"
+                android:textAlignment="textEnd"
+                android:elevation="13dp"
+               />
+
+            <View style="@style/Divider"
+                android:id="@+id/separatorten"
+                android:layout_below="@+id/inputDateFrom"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:text="Uknjizeno:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/separatorten"
+                android:layout_marginTop="10dp"
+                android:id="@+id/booked"
+                android:textStyle="normal|bold"
+                android:layout_alignEnd="@+id/textView3"/>
+
+            <android.support.v7.widget.SwitchCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/booked"
+                android:layout_alignRight="@+id/streetNumberEdit"
+                android:theme="@style/SCBSwitch"
+                android:id="@+id/bookedSwitch" />
+
+            <View
+                style="@style/Divider"
+                android:id="@+id/separatoreleven"
+                android:layout_below="@+id/bookedSwitch"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:text="Status:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/separatoreleven"
+                android:layout_marginTop="10dp"
+                android:id="@+id/status"
+                android:textStyle="normal|bold"
+                android:layout_alignEnd="@+id/textView3"/>
+
+            <Spinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/status"
+                android:layout_toEndOf="@+id/status"
+                android:id="@+id/statusSwitch"
+                android:ems="10"/>
+
+            <View
+                style="@style/Divider"
+                android:id="@+id/separatortwelve"
+                android:layout_below="@+id/statusSwitch"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:text="Prodaja:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/separatortwelve"
+                android:layout_marginTop="10dp"
+                android:id="@+id/sale"
+                android:textStyle="normal|bold"
+                android:layout_alignEnd="@+id/textView3"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/sale"
+                android:layout_alignRight="@+id/streetNumberEdit"
+                android:maxWidth="40dp"
+                android:id="@+id/saleCheck"
+                android:theme="@style/SCBSwitch"
+                />
+            <TextView
+                android:text="Najam:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sale"
+                android:layout_marginTop="10dp"
+                android:id="@+id/loan"
+                android:textStyle="normal|bold"
+                android:layout_alignEnd="@+id/textView3"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/loan"
+                android:layout_alignRight="@+id/streetNumberEdit"
+                android:maxWidth="40dp"
+                android:id="@+id/loanCheck"
+                android:theme="@style/SCBSwitch"
+                />
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/loanCheck"
+                android:layout_alignRight="@+id/streetNumberEdit"
+                android:text="Unesi"
+                android:id="@+id/search"
+                android:background="@color/red"
+                android:textColor="#fff"
+                />
+
+
+        </RelativeLayout>
+    </ScrollView>
+</FrameLayout>

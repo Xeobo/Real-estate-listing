@@ -10,6 +10,7 @@ import com.rt_rk.vzbiljic.pkiapp.R;
 import com.rt_rk.vzbiljic.pkiapp.datasource.UserDataSource;
 import com.rt_rk.vzbiljic.pkiapp.fragments.AbstractActivityFragment;
 import com.rt_rk.vzbiljic.pkiapp.fragments.AbstractSearchUserFragment;
+import com.rt_rk.vzbiljic.pkiapp.fragments.AddPropertyFragment;
 import com.rt_rk.vzbiljic.pkiapp.fragments.AgentActivityFragment;
 import com.rt_rk.vzbiljic.pkiapp.fragments.AssignPropertyToAgent;
 import com.rt_rk.vzbiljic.pkiapp.fragments.RemovePropertyFragment;
@@ -56,6 +57,7 @@ public class AdminActivity extends StartFragmentActivity {
                 break;
             case Menu.FIRST + 1://Add property
 
+                atachFragment(new AddPropertyFragment());
                 break;
             case Menu.FIRST + 2://Add to agent
                  newFragment = new AssignPropertyToAgent();
