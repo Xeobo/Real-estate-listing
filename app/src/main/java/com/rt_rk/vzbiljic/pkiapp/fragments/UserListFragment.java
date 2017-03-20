@@ -66,7 +66,10 @@ public class UserListFragment extends ListViewFragment {
                 dialog.dismiss();
                 switch (i){
                     case 0://edit
-                        changeToFragment(new EditUserFragment());
+                        EditUserFragment fragment = new EditUserFragment();
+                        fragment.setUser(UserDataSource.getInstance().get(finalUserID));
+                        fragment.setFragment(UserListFragment.this);
+                        changeToFragment(fragment);
                         break;
                     case 1://delete
                         UserDataSource.getInstance().remove(finalUserID);

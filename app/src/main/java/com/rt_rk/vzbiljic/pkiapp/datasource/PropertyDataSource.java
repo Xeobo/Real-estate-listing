@@ -2,6 +2,7 @@ package com.rt_rk.vzbiljic.pkiapp.datasource;
 
 import com.rt_rk.vzbiljic.pkiapp.R;
 import com.rt_rk.vzbiljic.pkiapp.bean.Property;
+import com.rt_rk.vzbiljic.pkiapp.bean.User;
 
 /**
  * Created by Xeobo on 2/4/2017.
@@ -33,6 +34,16 @@ public class PropertyDataSource extends AbstractDataSource<Property> {
         }
 
         return instance;
+    }
+
+    public boolean checkIfExists(String user) {
+        for(int i=0; i< PropertyDataSource.getInstance().size();i++){
+            Property u = PropertyDataSource.getInstance().get(i);
+            if(u.getName().equals(user)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

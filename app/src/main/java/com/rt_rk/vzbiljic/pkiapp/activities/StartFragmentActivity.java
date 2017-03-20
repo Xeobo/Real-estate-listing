@@ -2,6 +2,7 @@ package com.rt_rk.vzbiljic.pkiapp.activities;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.MenuItem;
 
 import com.rt_rk.vzbiljic.pkiapp.R;
@@ -13,7 +14,17 @@ import com.rt_rk.vzbiljic.pkiapp.fragments.PropertyListFragment;
 
 public abstract class StartFragmentActivity extends StartActivity {
 
+    protected void atachFragment(Fragment fragment){
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
+        // Replace whatever is in the fragment_container view with this fragment,
+        // and add the transaction to the back stack so the user can navigate back
+        transaction.replace(R.id.fragment_container, fragment);
+        transaction.addToBackStack(null);
+
+        // Commit the transaction
+        transaction.commit();
+    }
     protected abstract Fragment getMainFragment();
 
     @Override

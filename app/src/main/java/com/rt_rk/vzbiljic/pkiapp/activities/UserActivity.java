@@ -46,31 +46,16 @@ public class UserActivity extends StartFragmentActivity  {
         int id = item.getItemId();
 
         if (id == Menu.FIRST) {
-            // Create fragment and give it an argument specifying the article it should show
+
             PropertyListFragment newFragment = new PropertyListFragment();
 
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-
-            // Replace whatever is in the fragment_container view with this fragment,
-            // and add the transaction to the back stack so the user can navigate back
-            transaction.replace(R.id.fragment_container, newFragment);
-            transaction.addToBackStack(null);
-
-            // Commit the transaction
-            transaction.commit();
+            atachFragment(newFragment);
         } else if (id == Menu.FIRST + 1) {
             // Create fragment and give it an argument specifying the article it should show
             SearchFragment newFragment = new SearchFragment();
 
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            atachFragment(newFragment);
 
-            // Replace whatever is in the fragment_container view with this fragment,
-            // and add the transaction to the back stack so the user can navigate back
-            transaction.replace(R.id.fragment_container, newFragment);
-            transaction.addToBackStack(null);
-
-            // Commit the transaction
-            transaction.commit();
         } else if (id == Menu.FIRST + 2) {
             Toast.makeText(
                     UserActivity.this,

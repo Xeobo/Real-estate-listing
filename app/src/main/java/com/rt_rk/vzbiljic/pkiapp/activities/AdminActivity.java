@@ -1,26 +1,36 @@
 package com.rt_rk.vzbiljic.pkiapp.activities;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.rt_rk.vzbiljic.pkiapp.R;
-import com.rt_rk.vzbiljic.pkiapp.fragments.PropertyListFragment;
-import com.rt_rk.vzbiljic.pkiapp.fragments.SearchFragment;
+import com.rt_rk.vzbiljic.pkiapp.datasource.UserDataSource;
+import com.rt_rk.vzbiljic.pkiapp.fragments.AbstractActivityFragment;
+import com.rt_rk.vzbiljic.pkiapp.fragments.AbstractSearchUserFragment;
+import com.rt_rk.vzbiljic.pkiapp.fragments.AgentActivityFragment;
+import com.rt_rk.vzbiljic.pkiapp.fragments.AssignPropertyToAgent;
+import com.rt_rk.vzbiljic.pkiapp.fragments.RemovePropertyFragment;
+import com.rt_rk.vzbiljic.pkiapp.fragments.SearchAgentFragment;
+import com.rt_rk.vzbiljic.pkiapp.fragments.SearchUserFragment;
+import com.rt_rk.vzbiljic.pkiapp.fragments.UserActivityFragment;
 import com.rt_rk.vzbiljic.pkiapp.fragments.UserListFragment;
 
 public class AdminActivity extends StartFragmentActivity {
 
+
+
     @Override
     protected void initializeMenuItems(Menu menu) {
-        menu.add(0,Menu.FIRST, Menu.NONE,"Listaj nekretnine").setIcon(R.drawable.ic_home_black_24dp);
-        menu.add(0,Menu.FIRST + 1,Menu.NONE,"Pretrazi").setIcon(R.drawable.ic_search_black_24dp);
-        menu.add(0,Menu.FIRST + 2,Menu.NONE,"Odjavi se").setIcon(R.drawable.ic_mood_bad_black_24dp);
+        menu.add(0,Menu.FIRST, Menu.NONE,"Listaj agente").setIcon(R.drawable.ic_face_black_24dp);
+        menu.add(0,Menu.FIRST + 1, Menu.NONE,"Dodavanje nekretnine").setIcon(R.drawable.ic_add_black_24dp);
+        menu.add(0,Menu.FIRST + 2,Menu.NONE,"Dodeli nekretninu agentu").setIcon(R.drawable.ic_input_black_24dp);
+        menu.add(0,Menu.FIRST + 3, Menu.NONE,"Izdate i prodate nekretnine").setIcon(R.drawable.ic_home_black_24dp);
+        menu.add(0,Menu.FIRST + 4, Menu.NONE,"Obišao korisnik").setIcon(R.drawable.ic_transfer_within_a_station_black_24dp);
+        menu.add(0,Menu.FIRST + 5, Menu.NONE,"Prikazao agent").setIcon(R.drawable.ic_accessibility_black_24dp);
+        menu.add(0,Menu.FIRST + 6,Menu.NONE,"Odjavi se").setIcon(R.drawable.ic_mood_bad_black_24dp);
     }
 
     @Override
@@ -28,56 +38,51 @@ public class AdminActivity extends StartFragmentActivity {
         return R.layout.content_start;
     }
 
+
     @Override
     protected Fragment getMainFragment() {
         return new UserListFragment();
     }
 
-
     @Override
     public boolean onNavigationItemSelected(MenuItem menuItem) {
         // Handle navigation view item clicks here.
         int id = menuItem.getItemId();
+        Fragment newFragment;
 
-        if (id == Menu.FIRST) {
-            // Create fragment and give it an argument specifying the article it should show
-            PropertyListFragment newFragment = new PropertyListFragment();
+        switch (id){
+            case Menu.FIRST://Agents
+                atachFragment(new UserListFragment());
+                break;
+            case Menu.FIRST + 1://Add property
 
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                break;
+            case Menu.FIRST + 2://Add to agent
+                 newFragment = new AssignPropertyToAgent();
 
-            // Replace whatever is in the fragment_container view with this fragment,
-            // and add the transaction to the back stack so the user can navigate back
-            transaction.replace(R.id.fragment_container, newFragment);
-            transaction.addToBackStack(null);
+                atachFragment(newFragment);
+                break;
+            case Menu.FIRST + 3://remove sold property
+                atachFragment(new RemovePropertyFragment());
+                break;
+            case Menu.FIRST + 4:// seen by user
+                newFragment = new SearchUserFragment();
 
-            // Commit the transaction
-            transaction.commit();
-        } else if (id == Menu.FIRST + 1) {
-            // Create fragment and give it an argument specifying the article it should show
-            SearchFragment newFragment = new SearchFragment();
+                atachFragment(newFragment);
+                break;
+            case Menu.FIRST + 5://taken by agent
+                newFragment = new SearchAgentFragment();
 
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                atachFragment(newFragment);
 
-            // Replace whatever is in the fragment_container view with this fragment,
-            // and add the transaction to the back stack so the user can navigate back
-            transaction.replace(R.id.fragment_container, newFragment);
-            transaction.addToBackStack(null);
+                break;
+            case Menu.FIRST + 6://log out
 
-            // Commit the transaction
-            transaction.commit();
-        } else if (id == Menu.FIRST + 2) {
-            Toast.makeText(
-                    AdminActivity.this,
-                    "Menu.FIRST + 2",
-                    Toast.LENGTH_SHORT
-            ).show();
-        } else {
-            Toast.makeText(
-                    AdminActivity.this,
-                    "BAAAD",
-                    Toast.LENGTH_SHORT
-            ).show();
+                break;
+            default:
+                break;
         }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

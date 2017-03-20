@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent">
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="29dp"
+        android:text="Agent:"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="33dp" />
+
+    <TextView
+        android:id="@+id/fragment_manage_user_agent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="29dp"
+        android:layout_alignBaseline="@+id/textView16"
+        android:layout_alignBottom="@+id/textView16"
+        android:layout_toEndOf="@+id/textView16"
+         />
+
+    <View style="@style/Divider"
+        android:id="@+id/divider_one"
+        android:layout_below="@+id/textView16"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="29dp"
+        android:text="Telefon:"
+        android:layout_below="@+id/divider_one"
+        android:layout_alignEnd="@+id/textView16" />
+
+    <EditText
+        android:id="@+id/fragment_manage_user_telephone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="15dp"
+        android:inputType="number"
+        android:layout_alignBaseline="@+id/textView17"
+        android:layout_alignBottom="@+id/textView17"
+        android:layout_toEndOf="@+id/textView17"
+        />
+
+    <View style="@style/Divider"
+        android:layout_below="@+id/fragment_manage_user_telephone"
+        android:id="@+id/divider_two"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="29dp"
+        android:text="Agencija:"
+        android:layout_below="@+id/divider_two"
+        android:layout_alignEnd="@+id/textView16" />
+
+    <EditText
+        android:id="@+id/fragment_manage_user_agency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_alignBaseline="@+id/textView18"
+        android:layout_alignBottom="@+id/textView18"
+        android:layout_toEndOf="@+id/textView18"
+        />
+
+    <Button
+        android:id="@+id/fragment_manage_user_manage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="manage"
+        android:background="@color/red"
+        android:textColor="#fff"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/divider_two"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="27dp" />
+</RelativeLayout>

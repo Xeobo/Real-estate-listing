@@ -85,7 +85,7 @@ public abstract class AbstractManageActivityFragment extends AbstractFragment  i
                 String agent = ((AutoCompleteTextView)(root.findViewById(R.id.add_edit_agent))).getText().toString();
 
                 //check if users exist
-                if(!(checkIfUserExists(user) && checkIfUserExists(agent))){
+                if(!(UserDataSource.getInstance().checkIfUserExists(user) && UserDataSource.getInstance().checkIfUserExists(agent))){
                     Toast.makeText(getActivity(),"Neispravno unet korisnik ili agent!",Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -136,15 +136,7 @@ public abstract class AbstractManageActivityFragment extends AbstractFragment  i
         return root;
     }
 
-    private boolean checkIfUserExists(String user) {
-        for(int i=0; i< UserDataSource.getInstance().size();i++){
-            User u = UserDataSource.getInstance().get(i);
-            if(u.getUsername().equals(user)) {
-                return true;
-            }
-        }
-        return false;
-    }
+
 
     @Override
     public final void onDateSet(DatePicker datePicker, int i, int i1, int i2) {

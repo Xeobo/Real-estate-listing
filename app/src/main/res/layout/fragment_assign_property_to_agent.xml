@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent">
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="Nekretnina:"
+        android:layout_alignBaseline="@+id/fragment_assign_property_to_agent_property_list"
+        android:layout_alignBottom="@+id/fragment_assign_property_to_agent_property_list"
+        android:layout_alignParentStart="true" />
+
+    <AutoCompleteTextView
+        android:id="@+id/fragment_assign_property_to_agent_property_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/textView23"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView23"
+        android:layout_alignEnd="@+id/textView23"
+        android:text="Agent:"
+        android:layout_alignBaseline="@+id/fragment_assign_property_to_agent_user_list"
+        android:layout_alignBottom="@+id/fragment_assign_property_to_agent_user_list"
+         />
+
+    <AutoCompleteTextView
+        android:id="@+id/fragment_assign_property_to_agent_user_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/textView23"
+        android:layout_below="@+id/fragment_assign_property_to_agent_property_list"
+        android:layout_marginEnd="20dp" />
+
+    <Button
+        android:id="@+id/fragment_assign_property_to_agent_user_action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/fragment_assign_property_to_agent_user_list"
+        android:layout_below="@+id/fragment_assign_property_to_agent_user_list"
+        android:layout_marginTop="30dp"
+        android:text="Button"
+        android:background="@color/red"
+        android:textColor="#fff"/>
+
+
+</RelativeLayout>

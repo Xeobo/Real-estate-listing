@@ -49,7 +49,7 @@ public class PropertyListAdapter extends ArrayAdapter<String> {
     }
 
 
-    public class ViewHolder{
+    public static class ViewHolder{
         TextView nameTV;
         TextView priceTV;
         ImageView img;
