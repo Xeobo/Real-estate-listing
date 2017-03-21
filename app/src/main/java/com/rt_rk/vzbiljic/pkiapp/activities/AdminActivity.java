@@ -1,5 +1,6 @@
 package com.rt_rk.vzbiljic.pkiapp.activities;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -79,7 +80,7 @@ public class AdminActivity extends StartFragmentActivity {
 
                 break;
             case Menu.FIRST + 6://log out
-
+                startActivity(new Intent(this,LoginActivity.class));
                 break;
             default:
                 break;

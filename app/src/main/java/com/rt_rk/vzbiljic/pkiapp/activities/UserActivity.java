@@ -1,6 +1,7 @@
 package com.rt_rk.vzbiljic.pkiapp.activities;
 
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -57,11 +58,9 @@ public class UserActivity extends StartFragmentActivity  {
             atachFragment(newFragment);
 
         } else if (id == Menu.FIRST + 2) {
-            Toast.makeText(
-                    UserActivity.this,
-                    "Menu.FIRST + 2",
-                    Toast.LENGTH_SHORT
-            ).show();
+
+            startActivity(new Intent(this,LoginActivity.class));
+
         } else {
             Toast.makeText(
                     UserActivity.this,
