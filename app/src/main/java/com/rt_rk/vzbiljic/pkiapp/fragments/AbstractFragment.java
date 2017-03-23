@@ -2,6 +2,7 @@ package com.rt_rk.vzbiljic.pkiapp.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +19,10 @@ import com.rt_rk.vzbiljic.pkiapp.datasource.manager.ActivityDataSourceManager;
 public abstract class AbstractFragment extends Fragment {
 
     protected void changeToFragment(Fragment fragment){
+
+
         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+
 
         // Replace whatever is in the fragment_container view with this fragment,
         // and add the transaction to the back stack so the user can navigate back
@@ -27,6 +31,8 @@ public abstract class AbstractFragment extends Fragment {
 
         // Commit the transaction
         transaction.commit();
+
+//        getActivity().getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
     }
 

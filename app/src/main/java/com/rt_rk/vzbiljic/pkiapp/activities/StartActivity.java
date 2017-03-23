@@ -1,13 +1,18 @@
 package com.rt_rk.vzbiljic.pkiapp.activities;
 
+import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.rt_rk.vzbiljic.pkiapp.R;
@@ -51,7 +56,32 @@ public abstract class StartActivity extends AbstractActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            Log.i("StartActivity", "BackstackCount = " + getSupportFragmentManager().getBackStackEntryCount());
+            if(getSupportFragmentManager().getBackStackEntryCount() == 0) {
+                AlertDialog dialog = new AlertDialog.Builder(this)
+                        .setTitle("Odjava?")
+                        .setMessage("Da li ste sigurni da želite da se odjavite?")
+                        .setNegativeButton(android.R.string.no, null)
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                            public void onClick(DialogInterface arg0, int arg1) {
+
+                                StartActivity.super.onBackPressed();
+                            }
+                        }).create();
+
+                dialog.show();
+
+                Button button = dialog.getButton(DialogInterface.BUTTON_POSITIVE);
+                button.setTextColor(Color.RED);
+                button.setText("DA");
+
+                button = dialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+                button.setTextColor(Color.RED);
+                button.setText("NE");
+            }else{
+                StartActivity.super.onBackPressed();
+            }
         }
     }
 
@@ -76,6 +106,5 @@ public abstract class StartActivity extends AbstractActivity
 
         return super.onOptionsItemSelected(item);
     }
-
 
 }
