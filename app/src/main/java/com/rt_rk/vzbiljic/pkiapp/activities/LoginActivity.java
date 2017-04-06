@@ -26,7 +26,7 @@ public class LoginActivity extends AbstractActivity implements View.OnFocusChang
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-        
+
         setContentView(R.layout.activity_login);
 
         final Button button = (Button) findViewById(R.id.button);
